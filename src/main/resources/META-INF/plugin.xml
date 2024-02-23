@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>org.jetbrains.plugins.template</id>
+    <name>Surtur</name>
+    <vendor>JetBrains</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.Surtur</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.surtur.surtur.toolWindow.SurturToolWindowFactory" id="SurturToolWindow"/>
+        <moduleType id="SurturProject" implementationClass="com.surtur.surtur.module.SurturModuleType"/>
+        <moduleBuilder builderClass="com.surtur.surtur.module.SurturModuleBuilder"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.surtur.surtur.listeners.SurturAppActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+    </applicationListeners>
+</idea-plugin>
