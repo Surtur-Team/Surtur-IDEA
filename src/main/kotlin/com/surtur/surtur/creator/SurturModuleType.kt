@@ -1,9 +1,8 @@
-package com.surtur.surtur.module
+package com.surtur.surtur.creator
 
 import com.intellij.openapi.module.ModuleType
 import com.surtur.surtur.SurturIcons
 import javax.swing.Icon
-
 
 class SurturModuleType : ModuleType<SurturModuleBuilder>("surtur") {
     override fun createModuleBuilder(): SurturModuleBuilder {
@@ -22,9 +21,4 @@ class SurturModuleType : ModuleType<SurturModuleBuilder>("surtur") {
         return SurturIcons.SURTUR
     }
 
-}
-
-private val INSTANCE = SurturModuleType();
-fun getInstance(): SurturModuleType {
-    return INSTANCE
 }

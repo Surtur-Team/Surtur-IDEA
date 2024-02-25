@@ -1,16 +1,25 @@
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
+    <id>com.surtur.surtur</id>
     <name>Surtur</name>
-    <vendor>JetBrains</vendor>
+    <vendor>Surtur-Team</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.Surtur</resource-bundle>
 
+    <extensionPoints>
+        <extensionPoint name="projectTypeWizard" interface="com.surtur.surtur.creator.ProjectTypeStep$Factory" dynamic="true" />
+    </extensionPoints>
+
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.surtur.surtur.toolWindow.SurturToolWindowFactory" id="SurturToolWindow"/>
-        <moduleType id="SurturProject" implementationClass="com.surtur.surtur.module.SurturModuleType"/>
-        <moduleBuilder builderClass="com.surtur.surtur.module.SurturModuleBuilder"/>
+        <!--Module builder for creating new surtur project-->
+        <moduleBuilder builderClass="com.surtur.surtur.creator.SurturModuleBuilder"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.surtur.surtur">
+        <projectTypeWizard implementation="com.surtur.surtur.creator.Binary$Factory"/>
+        <projectTypeWizard implementation="com.surtur.surtur.creator.Library$Factory"/>
     </extensions>
 
     <applicationListeners>
